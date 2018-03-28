@@ -8,6 +8,8 @@
     "clean": "cross-env rimraf .tmp .nyc_output coverage dist",
     "lint": "cross-env tslint --project tsconfig.json --config tslint.json",
     "build": "npm run clean && concurrently  \"npm run build:es2015\" \"npm run build:commonjs\" \"npm run build:amd\" \"npm run build:native\"",
+    "build:sass": "node-sass ./src/aurelia-gridster.scss ./dist/css/aurelia-gridster.css",
+    "build:typings":"copyfiles ./typings/*.d.ts ./dist",
     "build:es2015": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/es2015 --module es2015 --target es2015",
     "build:commonjs": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/commonjs --module commonjs",
     "build:amd": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/amd --module amd",
