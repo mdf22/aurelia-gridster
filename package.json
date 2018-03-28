@@ -1,0 +1,44 @@
+{
+  "name": "aurelia-gridster",
+  "version": "0.0.1-BETA",
+  "description": "Aurelia gridster plugin",
+  "main": "dist/commonjs/aurelia-gridster.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "cross-env rimraf .tmp .nyc_output coverage dist",
+    "lint": "cross-env tslint --project tsconfig.json --config tslint.json",
+    "build": "npm run clean && concurrently  \"npm run build:es2015\" \"npm run build:commonjs\" \"npm run build:amd\" \"npm run build:native\"",
+    "build:es2015": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/es2015 --module es2015 --target es2015",
+    "build:commonjs": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/commonjs --module commonjs",
+    "build:amd": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/amd --module amd",
+    "build:native": "cross-env  tsc --project tsconfig.json --rootDir src/ --outDir ./dist/native-modules --module es2015 --target es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdf22/aurelia-gridster.git"
+  },
+  "keywords": [
+    "aurelia",
+    "gridster"
+  ],
+  "author": "Janis Bebriss (janis@fnet.lv)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdf22/aurelia-gridster/issues"
+  },
+  "homepage": "https://github.com/mdf22/aurelia-gridster#readme",
+  "dependencies": {
+    "aurelia-event-aggregator": "^1.0.1",
+    "aurelia-framework": "^1.1.5",
+    "aurelia-pal": "^1.7.0",
+    "aurelia-resize": "^1.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "copyfiles": "^2.0.0",
+    "cross-env": "^5.1.4",
+    "node-sass": "^4.8.3",
+    "rimraf": "^2.6.1",
+    "typescript": "^2.7.2"
+  }
+}
